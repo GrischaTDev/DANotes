@@ -75,6 +75,8 @@ export class NoteListService {
   }
 
   async updateNote(colId: string, docId: string, item: {}) {
-    await updateDoc(this.getSingleDocRef(colId, docId), item);
+    await updateDoc(this.getSingleDocRef(colId, docId), item).catch(
+      (err) => { console.log(err); }
+    );
   }
 }
